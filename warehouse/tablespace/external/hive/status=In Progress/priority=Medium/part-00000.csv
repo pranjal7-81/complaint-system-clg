@@ -1,0 +1,3 @@
+id,complaint,category,priority,department,status,created_at,customer_username,macro_product,admin_notes,updated_at
+10,"I deposited a paycheck of $1,200 at the branch ATM two days ago but my account balance has not updated.",balance_not_updated_after_cheque_or_cash_deposit,Medium,Billing & Accounts,In Progress,2026-10-13 04:04,user,ATM & Cash Services,Cheque clearance underway. Funds expected to settle by end of business day.,2026-10-13 08:04
+11,I need to dispute a double charge of $89.99 for groceries at supermarket yesterday.,transaction_charged_twice,Medium,Billing & Accounts,In Progress,2026-10-15 05:04,john_doe,Account Billing & Fees,Merchant reconciliation request submitted for the duplicate debit.,2026-10-15 09:04

@@ -1,0 +1,60 @@
+// ==============================================================================
+// POWER BI DAX MEASURES SPECIFICATION
+// PROJECT: Customer Complaint Intelligence & Big Data Analytics
+// ==============================================================================
+
+// 1. Total Complaint Volume
+Total Complaints = COUNTROWS(fact_complaints)
+
+// 2. Total Resolved Complaints
+Resolved Complaints = 
+CALCULATE(
+    COUNTROWS(fact_complaints),
+    fact_complaints[status] = "Resolved"
+)
+
+// 3. Complaint Resolution Rate (%)
+Resolution Rate % = 
+DIVIDE([Resolved Complaints], [Total Complaints], 0) * 100
+
+// 4. Pending Complaints Backlog
+Pending Complaints = 
+CALCULATE(
+    COUNTROWS(fact_complaints),
+    fact_complaints[status] = "Pending"
+)
+
+// 5. In-Progress Complaints
+In Progress Complaints = 
+CALCULATE(
+    COUNTROWS(fact_complaints),
+    fact_complaints[status] = "In Progress"
+)
+
+// 6. High Urgency Fraud / Critical Escalations
+High Urgency Incidents = 
+CALCULATE(
+    COUNTROWS(fact_complaints),
+    fact_complaints[priority] = "High"
+)
+
+// 7. High Urgency Escalation Ratio (%)
+High Urgency Ratio % = 
+DIVIDE([High Urgency Incidents], [Total Complaints], 0) * 100
+
+// 8. SLA Compliance Status
+SLA Compliance Status = 
+SWITCH(
+    TRUE(),
+    [Resolution Rate %] >= 80, "✅ Excellent SLA",
+    [Resolution Rate %] >= 50, "⚠️ Moderate SLA",
+    "🚨 Critical SLA Breach"
+)
+
+// 9. Department Workload Share (%)
+Dept Workload % = 
+DIVIDE(
+    COUNTROWS(fact_complaints),
+    CALCULATE(COUNTROWS(fact_complaints), ALL(dim_department)),
+    0
+) * 100

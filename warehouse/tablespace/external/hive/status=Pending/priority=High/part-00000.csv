@@ -1,0 +1,3 @@
+id,complaint,category,priority,department,status,created_at
+6,An unauthorized ATM cash withdrawal of $400 appeared on my account history while I was out of town.,cash_withdrawal_not_recognised,High,Fraud & Risk Prevention,Pending,2026-10-13 15:51
+16,Someone used my credit card without permission at a merchant and $450 was deducted.,compromised_card,High,Fraud & Risk Prevention,Pending,2026-10-16 01:58
