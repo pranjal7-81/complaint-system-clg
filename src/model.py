@@ -53,11 +53,11 @@ def train_and_compare_models():
 
     # Define 5 models
     models = {
-        "Logistic Regression": LogisticRegression(max_iter=500, random_state=42, solver='lbfgs'),
-        "Multinomial Naive Bayes": MultinomialNB(alpha=0.1),
-        "Random Forest": RandomForestClassifier(n_estimators=100, max_depth=30, random_state=42, n_jobs=-1),
         "Linear Support Vector (SGD)": SGDClassifier(loss='modified_huber', max_iter=500, random_state=42),
-        "Decision Tree": DecisionTreeClassifier(max_depth=35, random_state=42)
+        "Logistic Regression": LogisticRegression(max_iter=300, random_state=42, solver='lbfgs'),
+        "Multinomial Naive Bayes": MultinomialNB(alpha=0.1),
+        "Random Forest": RandomForestClassifier(n_estimators=60, max_depth=25, random_state=42, n_jobs=-1),
+        "Decision Tree": DecisionTreeClassifier(max_depth=25, random_state=42)
     }
 
     results = []

@@ -1,3 +1,2 @@
-id,complaint,category,priority,department,status,created_at
-6,An unauthorized ATM cash withdrawal of $400 appeared on my account history while I was out of town.,cash_withdrawal_not_recognised,High,Fraud & Risk Prevention,Pending,2026-10-13 15:51
-16,Someone used my credit card without permission at a merchant and $450 was deducted.,compromised_card,High,Fraud & Risk Prevention,Pending,2026-10-16 01:58
+id,customer_username,complaint,category,macro_product,priority,department,status,admin_notes,created_at,updated_at
+8,john_doe,I received a notice threatening repossession of my vehicle even though my monthly auto lease payment of $420 was debited directly via auto-pay on the 1st of this month.,Consumer & Personal Loans,Consumer & Educational Lending,High,Consumer Lending Team,Pending,URGENT ESCALATION: Auto repossession hold confirmed with recovery operations. Payment trace located and reconciled.,2026-10-26 10:15,2026-10-26 14:15

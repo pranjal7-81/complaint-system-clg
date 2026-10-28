@@ -1,52 +1,52 @@
 [
   {
+    "model_name": "Linear Support Vector (SGD)",
+    "accuracy": 0.8346,
+    "precision_macro": 0.678,
+    "recall_macro": 0.6438,
+    "f1_macro": 0.6534,
+    "f1_weighted": 0.8299,
+    "train_time_sec": 3.47,
+    "latency_ms_per_sample": 0.002
+  },
+  {
     "model_name": "Logistic Regression",
-    "accuracy": 0.821,
-    "precision_macro": 0.8348,
-    "recall_macro": 0.8209,
-    "f1_macro": 0.8205,
-    "f1_weighted": 0.8206,
-    "train_time_sec": 3.82,
-    "latency_ms_per_sample": 0.004
+    "accuracy": 0.832,
+    "precision_macro": 0.6779,
+    "recall_macro": 0.6348,
+    "f1_macro": 0.6485,
+    "f1_weighted": 0.8274,
+    "train_time_sec": 15.45,
+    "latency_ms_per_sample": 0.001
   },
   {
     "model_name": "Multinomial Naive Bayes",
-    "accuracy": 0.8109,
-    "precision_macro": 0.8281,
-    "recall_macro": 0.8107,
-    "f1_macro": 0.8098,
-    "f1_weighted": 0.8099,
-    "train_time_sec": 0.07,
+    "accuracy": 0.8105,
+    "precision_macro": 0.6446,
+    "recall_macro": 0.6113,
+    "f1_macro": 0.6238,
+    "f1_weighted": 0.8046,
+    "train_time_sec": 0.39,
     "latency_ms_per_sample": 0.002
   },
   {
     "model_name": "Random Forest",
-    "accuracy": 0.7553,
-    "precision_macro": 0.8059,
-    "recall_macro": 0.7551,
-    "f1_macro": 0.7603,
-    "f1_weighted": 0.7604,
-    "train_time_sec": 0.39,
-    "latency_ms_per_sample": 0.038
-  },
-  {
-    "model_name": "Linear Support Vector (SGD)",
-    "accuracy": 0.8366,
-    "precision_macro": 0.8416,
-    "recall_macro": 0.8365,
-    "f1_macro": 0.8358,
-    "f1_weighted": 0.8359,
-    "train_time_sec": 0.7,
-    "latency_ms_per_sample": 0.003
+    "accuracy": 0.7665,
+    "precision_macro": 0.6561,
+    "recall_macro": 0.5033,
+    "f1_macro": 0.5234,
+    "f1_weighted": 0.7467,
+    "train_time_sec": 4.62,
+    "latency_ms_per_sample": 0.012
   },
   {
     "model_name": "Decision Tree",
-    "accuracy": 0.5444,
-    "precision_macro": 0.787,
-    "recall_macro": 0.5441,
-    "f1_macro": 0.6006,
-    "f1_weighted": 0.6008,
-    "train_time_sec": 0.63,
-    "latency_ms_per_sample": 0.001
+    "accuracy": 0.7169,
+    "precision_macro": 0.5545,
+    "recall_macro": 0.5374,
+    "f1_macro": 0.5443,
+    "f1_weighted": 0.7171,
+    "train_time_sec": 52.45,
+    "latency_ms_per_sample": 0.003
   }
 ]

@@ -13,93 +13,63 @@ DB_NAME = "complaints.db"
 sample_complaints = [
     {
         "customer": "user",
-        "text": "Someone used my debit card without my permission at a gas station and $250 was deducted.",
+        "text": "Equifax is reporting a delinquent collection account of $1,450 from an unknown medical provider that does not belong to me. I suspect identity theft and disputed this 45 days ago with no response.",
         "status": "In Progress",
-        "admin_notes": "Card blocked immediately. Dispatched to Fraud & Risk Prevention for transaction chargeback recovery."
+        "admin_notes": "Formal FCRA 30-day investigation notice issued to Credit Reporting Bureau. Flagged for immediate compliance triage."
     },
     {
         "customer": "user",
-        "text": "My credit card was stolen from my wallet yesterday and I need to freeze it immediately to prevent fraud.",
+        "text": "Someone used my credit card without my permission to purchase $850 worth of electronics online and my account was debited immediately.",
         "status": "In Progress",
-        "admin_notes": "Card frozen. Emergency replacement card requested via express delivery."
+        "admin_notes": "Card frozen immediately. Provisional credit of $850 credited to cardholder account. Chargeback initiated with acquiring merchant."
     },
     {
         "customer": "user",
-        "text": "I requested a replacement contactless card 12 days ago but I still have not received it in the mail.",
+        "text": "A third-party debt collector keeps calling my workplace 5 times a day demanding payment for a credit card debt that was already paid off in 2021. They threatened wage garnishment.",
         "status": "Pending",
-        "admin_notes": "Ticket queued. Postal dispatch tracking number requested from Card Fulfillment team."
+        "admin_notes": "FDCPA violation investigation initiated. Cease-and-desist communication notice dispatched to collection agency."
     },
     {
         "customer": "user",
-        "text": "I noticed an unknown recurring monthly account maintenance fee of $25 on my checking account statement.",
+        "text": "I made my monthly mortgage payment of $2,100 on time, but the servicer misapplied the funds into escrow instead of principal, and assessed an improper late fee of $120.",
         "status": "Resolved",
-        "admin_notes": "Waived the $25 maintenance fee and credited back to account. Upgraded account tier to zero-fee student tier."
+        "admin_notes": "Mortgage servicer corrected ledger allocation to principal & interest. Late charge of $120 reversed and credited."
     },
     {
         "customer": "john_doe",
-        "text": "I tried to transfer money to another account via SEPA but the transfer is stuck in pending status since yesterday.",
+        "text": "I initiated an international wire transfer of $3,500 via SWIFT for urgent family medical expenses 8 days ago. The funds have left my account but never arrived at the beneficiary bank.",
         "status": "Pending",
-        "admin_notes": "Pending clearing batch check with European Central Clearing House."
+        "admin_notes": "Wire tracking trace ticket opened with intermediary clearing bank. High-urgency wire recall inquiry pending."
     },
     {
         "customer": "john_doe",
-        "text": "An unauthorized ATM cash withdrawal of $400 appeared on my account history while I was out of town.",
+        "text": "My bank charged four consecutive overdraft fees of $35 each on the same day due to an internal system batch processing reordering of debit transactions.",
+        "status": "Resolved",
+        "admin_notes": "Reviewed transaction posting order. Courtesy refund of $140 credited back to customer checking account."
+    },
+    {
+        "customer": "john_doe",
+        "text": "My student loan servicer failed to certify my Public Service Loan Forgiveness (PSLF) payment count despite 120 qualifying on-time payments made over 10 years.",
         "status": "In Progress",
-        "admin_notes": "Security video requested from ATM operator. Provisional $400 credit issued."
+        "admin_notes": "Escalated to Federal Student Aid ombudsman unit for payment history audit and discharge verification."
     },
     {
         "customer": "john_doe",
-        "text": "I cannot log in to my mobile banking app because I forgot my passcode and verification SMS is not arriving.",
-        "status": "Resolved",
-        "admin_notes": "Identity verified via telephone KYC. Passcode reset link sent securely to customer's verified email."
-    },
-    {
-        "customer": "john_doe",
-        "text": "Why was I charged an international transaction exchange fee when purchasing online from a local merchant?",
-        "status": "Resolved",
-        "admin_notes": "Merchant processor is registered in the UK. Explained international interchange fee regulations."
-    },
-    {
-        "customer": "user",
-        "text": "My virtual card was declined when trying to pay for a software subscription online.",
+        "text": "I received a notice threatening repossession of my vehicle even though my monthly auto lease payment of $420 was debited directly via auto-pay on the 1st of this month.",
         "status": "Pending",
-        "admin_notes": "3D Secure authentication failure investigated. Recommended refreshing disposable virtual card."
+        "admin_notes": "URGENT ESCALATION: Auto repossession hold confirmed with recovery operations. Payment trace located and reconciled."
     },
     {
         "customer": "user",
-        "text": "I deposited a paycheck of $1,200 at the branch ATM two days ago but my account balance has not updated.",
+        "text": "My debit card was swallowed by an ATM machine at a local branch during an error and $300 cash was not dispensed but deducted from my balance.",
         "status": "In Progress",
-        "admin_notes": "Cheque clearance underway. Funds expected to settle by end of business day."
+        "admin_notes": "ATM cash cassette count requested from cash-in-transit vendor. Provisional credit of $300 issued."
     },
     {
         "customer": "john_doe",
-        "text": "I need to dispute a double charge of $89.99 for groceries at supermarket yesterday.",
-        "status": "In Progress",
-        "admin_notes": "Merchant reconciliation request submitted for the duplicate debit."
-    },
-    {
-        "customer": "john_doe",
-        "text": "Can you explain the age limit and identity documentation required to open a joint savings account?",
+        "text": "I applied for a credit limit increase on my card 3 weeks ago. Can you explain the status and documentation required for underwriting review?",
         "status": "Resolved",
-        "admin_notes": "Guidelines and digital KYC requirements emailed to customer."
-    },
-    {
-        "customer": "user",
-        "text": "My transfer to a beneficiary was rejected without any explanation and funds were not credited back.",
-        "status": "Pending",
-        "admin_notes": "Beneficiary IBAN format validation issue detected. Reverse transfer initiated."
-    },
-    {
-        "customer": "john_doe",
-        "text": "I received an alert that my online banking password was changed from an unrecognized IP address in another country.",
-        "status": "Pending",
-        "admin_notes": "CRITICAL ESCALATION: User session invalidated, web banking locked pending two-factor re-verification."
-    },
-    {
-        "customer": "user",
-        "text": "I was promised a refund from an airline 3 weeks ago but it is not showing up in my pending transactions.",
-        "status": "Resolved",
-        "admin_notes": "Merchant acquirer initiated refund today. Credit settled in user account."
+        "admin_notes": "Provided underwriting status update and secure portal link for submitting updated proof of income."
     }
 ]
 

@@ -244,11 +244,11 @@ if st.session_state.role == "customer":
 
         presets = [
             "Quick Scenario Presets (Click to autofill)...",
-            "Someone used my debit card without my permission at a gas station and $250 was deducted.",
-            "My debit card was swallowed by the ATM machine and no cash was dispensed.",
-            "I requested a replacement contactless card two weeks ago but it has not arrived yet.",
-            "Why was an extra monthly maintenance charge of $15 debited from my checking account?",
-            "I forgot my mobile banking passcode and cannot log in to transfer funds."
+            "Equifax is reporting a delinquent $1,450 collection from an unknown hospital that does not belong to me. I suspect identity theft and disputed 45 days ago with no response.",
+            "Someone used my credit card without my permission to purchase $850 worth of items online and my account was debited immediately.",
+            "A third-party debt collector keeps calling my workplace 5 times daily demanding payment for an old debt that was already settled in 2021.",
+            "My mortgage servicer misapplied my monthly $2,100 payment entirely to escrow instead of principal and charged an improper $120 late fee.",
+            "I initiated an international wire transfer of $3,500 via SWIFT 8 days ago for urgent medical expenses, but the funds never arrived at the beneficiary bank."
         ]
         chosen_preset = st.selectbox("Sample scenarios:", presets, label_visibility="collapsed")
         initial_val = "" if chosen_preset == presets[0] else chosen_preset

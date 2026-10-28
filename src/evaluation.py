@@ -65,9 +65,10 @@ def run_comprehensive_evaluation():
     top_categories = y_test.value_counts().head(8).index.tolist()
 
     # Filter to top categories for readable confusion matrix
-    mask = y_test.isin(top_categories) & pd.Series(preds).isin(top_categories)
+    preds_series = pd.Series(preds, index=y_test.index)
+    mask = y_test.isin(top_categories) & preds_series.isin(top_categories)
     y_test_filtered = y_test[mask]
-    preds_filtered = np.array(preds)[mask]
+    preds_filtered = preds_series[mask]
 
     cm = confusion_matrix(y_test_filtered, preds_filtered, labels=top_categories)
     cm_norm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
