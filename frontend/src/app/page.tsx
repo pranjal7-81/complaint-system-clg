@@ -337,7 +337,7 @@ export default function Home() {
                 isDark ? "bg-gray-900 border-gray-800 text-white" : "bg-slate-100 border-slate-300 text-slate-900"
               }`}>
                 <div className="w-6 h-6 rounded-md bg-indigo-600/20 text-indigo-500 font-bold flex items-center justify-center">
-                  {currentUsername.charAt(0).toUpperCase()}
+                  {(currentUsername || "U").charAt(0).toUpperCase()}
                 </div>
                 <span className="font-bold">{currentUsername}</span>
               </div>

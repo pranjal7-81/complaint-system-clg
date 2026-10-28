@@ -77,7 +77,7 @@ def run_comprehensive_evaluation():
     sns.heatmap(cm_norm, annot=True, fmt='.2f', cmap='Blues',
                 xticklabels=[c.replace('_', ' ')[:18] for c in top_categories],
                 yticklabels=[c.replace('_', ' ')[:18] for c in top_categories])
-    plt.title('Normalized Confusion Matrix (Top Primary Banking Categories)', fontsize=12, fontweight='bold', pad=12)
+    plt.title('Normalized Confusion Matrix — Consumer Financial Services Categories', fontsize=12, fontweight='bold', pad=12)
     plt.xlabel('Predicted Intent', fontweight='bold')
     plt.ylabel('True Intent', fontweight='bold')
     plt.xticks(rotation=30, ha='right', fontsize=8.5)

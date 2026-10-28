@@ -522,6 +522,12 @@ DIVIDE(
             if os.path.exists("artifacts/confusion_matrix.png"):
                 st.image("artifacts/confusion_matrix.png", use_container_width=True)
 
+        st.markdown("##### Detailed Classification Report (Per-Class Precision, Recall, F1 and Support)")
+        rep_file = "artifacts/classification_report.txt"
+        if os.path.exists(rep_file):
+            with open(rep_file, "r", encoding="utf-8") as rf:
+                st.code(rf.read(), language="text")
+
     # --- ADMIN TAB 5: ADMIN DATA CONTROLS ---
     with adm_tab5:
         st.subheader("Administrative Controls & Demo Tools")

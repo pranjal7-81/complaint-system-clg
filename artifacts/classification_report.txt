@@ -1,0 +1,16 @@
+                                    precision    recall  f1-score   support
+
+       Checking & Savings Accounts     0.8020    0.8290    0.8153       772
+         Consumer & Personal Loans     0.6675    0.5553    0.6063       488
+              Credit & Debit Cards     0.8030    0.7966    0.7998      1131
+         Credit Reporting & Repair     0.8423    0.8551    0.8487      2761
+                   Debt Collection     0.8025    0.8520    0.8265      2223
+Money Transfers & Digital Payments     0.8898    0.6522    0.7527       161
+            Mortgages & Home Loans     0.9070    0.9313    0.9190      1644
+          Other Financial Services     0.0000    0.0000    0.0000        12
+                     Student Loans     0.8985    0.8529    0.8751       612
+           Vehicle Loans & Leasing     0.1667    0.0238    0.0417        84
+
+                          accuracy                         0.8320      9888
+                         macro avg     0.6779    0.6348    0.6485      9888
+                      weighted avg     0.8253    0.8320    0.8274      9888
