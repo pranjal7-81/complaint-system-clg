@@ -349,11 +349,12 @@ if st.session_state.role == "customer":
 # VIEW 3: ADMIN ROLE (ALL TICKETS, POWER BI, HIVE LAKE, ML BENCHMARKS)
 # ==============================================================================
 elif st.session_state.role == "admin":
-    adm_tab1, adm_tab2, adm_tab3, adm_tab4, adm_tab5 = st.tabs([
+    adm_tab1, adm_tab2, adm_tab3, adm_tab4, adm_tab5, adm_tab6 = st.tabs([
         "📂 All Complaints Triage",
         "📊 Power BI & Analytics",
         "🗄️ Apache Hive Data Lake",
         "🤖 ML Model Benchmarks",
+        "📚 CFPB Master Dataset",
         "⚡ Admin Data Controls"
     ])
 
@@ -528,8 +529,84 @@ DIVIDE(
             with open(rep_file, "r", encoding="utf-8") as rf:
                 st.code(rf.read(), language="text")
 
-    # --- ADMIN TAB 5: ADMIN DATA CONTROLS ---
+
+    # --- ADMIN TAB 5: CFPB MASTER DATASET EXPLORER ---
     with adm_tab5:
+        st.subheader("📚 CFPB Consumer Complaint Master Database")
+        st.write("Browse, filter, and inspect the real-world **U.S. Consumer Financial Protection Bureau (CFPB)** dataset used to train and benchmark the AI models.")
+
+        cfpb_csv_path = "data/processed/cleaned_complaints.csv"
+        is_sample = False
+        if not os.path.exists(cfpb_csv_path):
+            if os.path.exists("data/cfpb_dataset_sample.csv"):
+                cfpb_csv_path = "data/cfpb_dataset_sample.csv"
+                is_sample = True
+            else:
+                st.warning("Processed CFPB dataset file not found at data/processed/cleaned_complaints.csv. Run `python scripts/run_pipeline.py` to generate it.")
+                cfpb_csv_path = None
+
+        if cfpb_csv_path:
+            if is_sample:
+                st.info("💡 Showing GitHub-distributed representative sample of 2,750 real CFPB complaints across all 10 categories (full 48,990 dataset stored locally on host).")
+            @st.cache_data
+            def get_cfpb_sample():
+                df = pd.read_csv(cfpb_csv_path, nrows=10000)
+                return df
+
+            with st.spinner("Loading CFPB dataset preview..."):
+                cfpb_df = get_cfpb_sample()
+
+            # Summary Metrics
+            c_m1, c_m2, c_m3, c_m4 = st.columns(4)
+            with c_m1:
+                st.metric("Total Clean Records", "48,990")
+            with c_m2:
+                st.metric("Consumer Financial Classes", "10 Domains")
+            with c_m3:
+                st.metric("Avg Complaint Length", f"{int(cfpb_df['word_count'].mean())} words")
+            with c_m4:
+                st.metric("High Urgency Ingested", f"{(cfpb_df['priority'] == 'High').sum():,}")
+
+            st.divider()
+
+            # Filters
+            f_col1, f_col2, f_col3 = st.columns([2, 1, 2])
+            with f_col1:
+                cats = ["All"] + sorted(cfpb_df["category"].dropna().unique().tolist())
+                sel_cat = st.selectbox("Filter by Financial Domain:", cats, key="cfpb_cat_filter")
+            with f_col2:
+                prio_opts = ["All", "High", "Medium", "Low"]
+                sel_prio = st.selectbox("Filter by Priority:", prio_opts, key="cfpb_prio_filter")
+            with f_col3:
+                search_kw = st.text_input("🔍 Search Narrative or Company:", placeholder="e.g. Equifax, stolen, wire, foreclosure", key="cfpb_search_kw")
+
+            filtered_cfpb = cfpb_df.copy()
+            if sel_cat != "All":
+                filtered_cfpb = filtered_cfpb[filtered_cfpb["category"] == sel_cat]
+            if sel_prio != "All":
+                filtered_cfpb = filtered_cfpb[filtered_cfpb["priority"] == sel_prio]
+            if search_kw.strip():
+                kw = search_kw.strip().lower()
+                filtered_cfpb = filtered_cfpb[
+                    filtered_cfpb["text"].str.lower().str.contains(kw, na=False) |
+                    filtered_cfpb["company"].str.lower().str.contains(kw, na=False)
+                ]
+
+            st.write(f"Showing **{len(filtered_cfpb):,}** matching complaints (from 10,000 cached records):")
+
+            display_cols = ["category", "priority", "department", "company", "state", "issue", "word_count"]
+            st.dataframe(filtered_cfpb[display_cols].head(100), use_container_width=True)
+
+            with st.expander("📖 Inspect Selected Complaint Narrative Sample"):
+                if not filtered_cfpb.empty:
+                    sample_row = filtered_cfpb.iloc[0]
+                    st.markdown(f"**Company:** {sample_row.get('company', 'N/A')} | **State:** {sample_row.get('state', 'N/A')} | **Category:** `{sample_row['category']}`")
+                    st.markdown(f"**Priority:** `{sample_row['priority']}` | **Routed Department:** `{sample_row['department']}`")
+                    st.markdown(f"**Raw Complaint Narrative:**")
+                    st.info(sample_row.get('raw_text', sample_row.get('text', '')))
+
+    # --- ADMIN TAB 6: ADMIN DATA CONTROLS ---
+    with adm_tab6:
         st.subheader("Administrative Controls & Demo Tools")
         st.write("Use these controls to reset demo data before your presentation.")
 
